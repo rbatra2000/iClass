@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="141" y="151"/>
         </scene>
         <!--Logged In View Controller-->
         <scene sceneID="ulj-PR-2hD">
@@ -170,6 +170,9 @@
                                         <state key="normal" title="Create an Account">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="confirm:" destination="Txm-R4-F7S" eventType="touchUpInside" id="wlL-AH-LpO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyL-jU-PHR">
                                         <rect key="frame" x="0.0" y="587.5" width="290" height="129.5"/>
@@ -177,6 +180,10 @@
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="Txm-R4-F7S" eventType="touchUpInside" id="m1Y-aL-jHh"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="return" id="nnv-j9-zda"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -190,6 +197,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WFP-Zu-9Pj"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="XNR-5e-HQI" id="hsf-H3-yAX"/>
+                        <outlet property="id" destination="cSM-5n-80X" id="B6l-vx-pth"/>
+                        <outlet property="name" destination="eno-O4-ogE" id="5i7-nv-Q5K"/>
+                        <outlet property="password" destination="2A1-bq-UCG" id="oE0-t7-R7a"/>
+                        <outlet property="phone" destination="0mT-Mg-Hjx" id="Yw7-tM-xYV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvO-fr-Kx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
