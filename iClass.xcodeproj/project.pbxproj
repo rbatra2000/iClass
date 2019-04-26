@@ -10,7 +10,7 @@
 		0067E2A822728D5A00B0312C /* LiteralQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2A422728D5A00B0312C /* LiteralQuestionViewController.swift */; };
 		0067E2A922728D5A00B0312C /* QuestionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2A522728D5A00B0312C /* QuestionsTableViewCell.swift */; };
 		0067E2AA22728D5A00B0312C /* QuestionsPopUpControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2A622728D5A00B0312C /* QuestionsPopUpControllerViewController.swift */; };
-		0067E2AB22728D5A00B0312C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2A722728D5A00B0312C /* ViewController.swift */; };
+		0067E2AB22728D5A00B0312C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2A722728D5A00B0312C /* QuestionViewController.swift */; };
 		0067E2AE227291C800B0312C /* LocationsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2AC227291C800B0312C /* LocationsStorage.swift */; };
 		0067E2AF227291C800B0312C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2AD227291C800B0312C /* Location.swift */; };
 		0067E2B12272922900B0312C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2B02272922900B0312C /* AppDelegate.swift */; };
@@ -32,7 +32,7 @@
 		0067E2A422728D5A00B0312C /* LiteralQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiteralQuestionViewController.swift; sourceTree = "<group>"; };
 		0067E2A522728D5A00B0312C /* QuestionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewCell.swift; sourceTree = "<group>"; };
 		0067E2A622728D5A00B0312C /* QuestionsPopUpControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsPopUpControllerViewController.swift; sourceTree = "<group>"; };
-		0067E2A722728D5A00B0312C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0067E2A722728D5A00B0312C /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		0067E2AC227291C800B0312C /* LocationsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsStorage.swift; sourceTree = "<group>"; };
 		0067E2AD227291C800B0312C /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0067E2B02272922900B0312C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,15 +119,13 @@
 		FF23295B22696CE300EC05E9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FF3691D22273A99C0087647B /* Cells */,
 				FF034C3222739C2200E0FFDD /* InitialViewController.swift */,
 				FF034C3022739C1C00E0FFDD /* SignUpViewController.swift */,
 				FF034C2E22739C1700E0FFDD /* LoggedInViewController.swift */,
 				0067E2A422728D5A00B0312C /* LiteralQuestionViewController.swift */,
 				0067E2A622728D5A00B0312C /* QuestionsPopUpControllerViewController.swift */,
-				0067E2A522728D5A00B0312C /* QuestionsTableViewCell.swift */,
-				0067E2A722728D5A00B0312C /* ViewController.swift */,
-				0067E2AD227291C800B0312C /* Location.swift */,
-				0067E2AC227291C800B0312C /* LocationsStorage.swift */,
+				0067E2A722728D5A00B0312C /* QuestionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -135,12 +133,22 @@
 		FF23295C22696CF700EC05E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0067E2AD227291C800B0312C /* Location.swift */,
 				FF23295D22696D2700EC05E9 /* AddUser.swift */,
+				0067E2AC227291C800B0312C /* LocationsStorage.swift */,
 				FF3A59A7226ED1640082F904 /* AddCourse.swift */,
 				FF23295F22696DE900EC05E9 /* User.swift */,
 				FF3A59A9226EF5730082F904 /* Course.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FF3691D22273A99C0087647B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0067E2A522728D5A00B0312C /* QuestionsTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,7 +298,7 @@
 				FF23296022696DE900EC05E9 /* User.swift in Sources */,
 				FF034C3122739C1C00E0FFDD /* SignUpViewController.swift in Sources */,
 				0067E2AF227291C800B0312C /* Location.swift in Sources */,
-				0067E2AB22728D5A00B0312C /* ViewController.swift in Sources */,
+				0067E2AB22728D5A00B0312C /* QuestionViewController.swift in Sources */,
 				FF3A59A8226ED1640082F904 /* AddCourse.swift in Sources */,
 				0067E2A922728D5A00B0312C /* QuestionsTableViewCell.swift in Sources */,
 				0067E2AE227291C800B0312C /* LocationsStorage.swift in Sources */,

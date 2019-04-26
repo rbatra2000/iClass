@@ -64,6 +64,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qrf-qE-5nv"/>
+                                                    <segue destination="Xnt-Bj-McF" kind="showDetail" identifier="professor" id="SEs-lJ-D28"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -89,7 +90,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-807" y="108"/>
+            <point key="canvasLocation" x="-891" y="108"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HMB-J4-csN">
+            <objects>
+                <viewController id="Xnt-Bj-McF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mw0-u9-2pU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mJ4-w6-NjN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Om-X7-Hlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="-670"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="9Yo-CF-6z1">
@@ -180,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvO-fr-Kx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="-328"/>
+            <point key="canvasLocation" x="135" y="108"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="U6z-3D-TSm">
@@ -198,12 +214,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BMh-Cr-3bz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="475"/>
+            <point key="canvasLocation" x="135" y="906"/>
         </scene>
         <!--Questions-->
         <scene sceneID="ApF-VW-ITE">
             <objects>
-                <viewController id="X9R-JY-OXJ" customClass="ViewController" customModule="QuestionsView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="X9R-JY-OXJ" customClass="QuestionViewController" customModule="iClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4dx-wG-5cB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,12 +289,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbC-ky-Lmp" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="891"/>
+            <point key="canvasLocation" x="1626" y="905"/>
         </scene>
         <!--Questions Pop Up Controller View Controller-->
         <scene sceneID="tsS-9f-Bya">
             <objects>
-                <viewController storyboardIdentifier="PopUpID" id="eMV-V0-I4U" customClass="QuestionsPopUpControllerViewController" customModule="QuestionsView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopUpID" id="eMV-V0-I4U" customClass="QuestionsPopUpControllerViewController" customModule="iClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s47-tR-rPA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -290,7 +306,7 @@
                                         <rect key="frame" x="0.0" y="54" width="373" height="484"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionsCell" rowHeight="47" id="pKS-17-ffK" customClass="QuestionsTableViewCell" customModule="QuestionsView" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionsCell" rowHeight="47" id="pKS-17-ffK" customClass="QuestionsTableViewCell" customModule="iClass" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="373" height="47"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pKS-17-ffK" id="iJd-VL-y9j">
@@ -356,12 +372,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BD8-Yb-R0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2697" y="891"/>
+            <point key="canvasLocation" x="2430" y="905"/>
         </scene>
         <!--Literal Question View Controller-->
         <scene sceneID="Kiz-hL-0M2">
             <objects>
-                <viewController storyboardIdentifier="LiteralQuestionID" id="8ef-hl-nPo" customClass="LiteralQuestionViewController" customModule="QuestionsView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LiteralQuestionID" id="8ef-hl-nPo" customClass="LiteralQuestionViewController" customModule="iClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZOl-IJ-AzU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,7 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wb-FI-EtX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3413" y="891"/>
+            <point key="canvasLocation" x="3186" y="905"/>
         </scene>
         <!--Attendance-->
         <scene sceneID="Ln0-1F-bVv">
@@ -456,7 +472,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0y-QD-Y58" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Yfq-kz-4cp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="162"/>
+            <point key="canvasLocation" x="883" y="905"/>
         </scene>
     </scenes>
     <resources>
