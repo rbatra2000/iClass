@@ -29,7 +29,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func confirm(_ sender: UIButton) {
-        if (id.text != "" && name.text!.isName && phone.text!.isPhoneNumber) {
+        if (email.text!.hasSuffix(".edu") && id.text != "" && name.text!.isName && phone.text!.isPhoneNumber) {
                 Auth.auth().createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 if user != nil {
                     let person = User(name: self.name.text!, id: self.email.text!, course: (self.id.text)!)
@@ -91,7 +91,7 @@ class SignUpViewController: UIViewController {
                 }
             })
         } else {
-            let alert = UIAlertController(title: "Please input all the fields correctly.", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Oops! Something went wrong!", message: "Please ensure that you inputted your full name, school email, and phone number (no parentheses or dashes).", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: nil))
             

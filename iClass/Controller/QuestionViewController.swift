@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import ChameleonFramework
 
-class ViewController: UIViewController {
+class QuestionViewController: UIViewController {
     
     @IBOutlet weak var inputQuestion: UITextView!
     
