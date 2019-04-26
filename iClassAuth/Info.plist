@@ -43,5 +43,7 @@
 	</array>
 	<key>FirebaseScreenReportingEnabled</key>
 	<string>NO</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>iClass would like to use your location!</string>
 </dict>
 </plist>
