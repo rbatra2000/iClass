@@ -23,6 +23,7 @@
 		FF11F5832259BE5B006EC8C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF11F5812259BE5B006EC8C9 /* LaunchScreen.storyboard */; };
 		FF23295E22696D2700EC05E9 /* AddUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF23295D22696D2700EC05E9 /* AddUser.swift */; };
 		FF23296022696DE900EC05E9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF23295F22696DE900EC05E9 /* User.swift */; };
+		FF3691D42273ABB50087647B /* ProfessorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3691D32273ABB50087647B /* ProfessorViewController.swift */; };
 		FF3A59A8226ED1640082F904 /* AddCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A59A7226ED1640082F904 /* AddCourse.swift */; };
 		FF3A59AA226EF5730082F904 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A59A9226EF5730082F904 /* Course.swift */; };
 		FF6A0BFE225AD0FA002E1E48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF6A0BFD225AD0FA002E1E48 /* GoogleService-Info.plist */; };
@@ -49,6 +50,7 @@
 		FF11F5842259BE5B006EC8C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF23295D22696D2700EC05E9 /* AddUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUser.swift; sourceTree = "<group>"; };
 		FF23295F22696DE900EC05E9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FF3691D32273ABB50087647B /* ProfessorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorViewController.swift; sourceTree = "<group>"; };
 		FF3A59A7226ED1640082F904 /* AddCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourse.swift; sourceTree = "<group>"; };
 		FF3A59A9226EF5730082F904 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		FF6A0BFD225AD0FA002E1E48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				0067E2A422728D5A00B0312C /* LiteralQuestionViewController.swift */,
 				0067E2A622728D5A00B0312C /* QuestionsPopUpControllerViewController.swift */,
 				0067E2A722728D5A00B0312C /* QuestionViewController.swift */,
+				FF3691D32273ABB50087647B /* ProfessorViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				FF034C2F22739C1700E0FFDD /* LoggedInViewController.swift in Sources */,
 				FF034C3322739C2200E0FFDD /* InitialViewController.swift in Sources */,
 				0067E2AA22728D5A00B0312C /* QuestionsPopUpControllerViewController.swift in Sources */,
+				FF3691D42273ABB50087647B /* ProfessorViewController.swift in Sources */,
 				FF23296022696DE900EC05E9 /* User.swift in Sources */,
 				FF034C3122739C1C00E0FFDD /* SignUpViewController.swift in Sources */,
 				0067E2AF227291C800B0312C /* Location.swift in Sources */,

@@ -12,7 +12,6 @@ class User {
     let name: String
     let id: String
     var courses = [String]()
-
     
     init(name: String, id: String, course: String) {
         self.name = name

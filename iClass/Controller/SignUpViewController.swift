@@ -19,13 +19,15 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var phone: UITextField!
+    @IBOutlet weak var status: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(gradientStyle:UIGradientStyle.radial, withFrame:view.frame, andColors:[UIColor.flatSkyBlue() as Any, UIColor.flatGreen() as Any])
+        self.view.backgroundColor = UIColor(gradientStyle:UIGradientStyle.radial, withFrame:view.frame, andColors:[UIColor.flatPowderBlue() as Any, UIColor.flatMint() as Any])
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
+        status.tintColor = UIColor .flatWhite();
     }
     
     @IBAction func confirm(_ sender: UIButton) {
@@ -44,7 +46,7 @@ class SignUpViewController: UIViewController {
                             try! Auth.auth().signOut()
                             self.dismiss(animated: true, completion: nil)
                             
-                        } else {
+                        } else if self.status.selectedSegmentIndex == 0 {
                             let alert = UIAlertController(title: "Add New Class", message: nil, preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
                                 let user = Auth.auth().currentUser
@@ -77,6 +79,8 @@ class SignUpViewController: UIViewController {
                             }))
                             
                             self.present(alert, animated: true, completion: nil)
+                        } else {
+                            
                         }
                     }
                 }
