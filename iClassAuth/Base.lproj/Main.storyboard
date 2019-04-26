@@ -192,15 +192,15 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="X9R-JY-OXJ" kind="relationship" relationship="viewControllers" id="TZB-I8-dlH"/>
-                        <segue destination="DRV-xq-0w6" kind="relationship" relationship="viewControllers" id="8P4-7W-MD8"/>
+                        <segue destination="DRV-xq-0w6" kind="relationship" relationship="viewControllers" id="sKq-Fl-qcd"/>
+                        <segue destination="X9R-JY-OXJ" kind="relationship" relationship="viewControllers" id="Scc-rg-Ofx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BMh-Cr-3bz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="932" y="475"/>
         </scene>
-        <!--Item-->
+        <!--Questions-->
         <scene sceneID="ApF-VW-ITE">
             <objects>
                 <viewController id="X9R-JY-OXJ" customClass="ViewController" customModule="QuestionsView" customModuleProvider="target" sceneMemberID="viewController">
@@ -265,7 +265,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FmF-3R-gBH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="T0M-h5-Qea"/>
+                    <tabBarItem key="tabBarItem" title="Questions" image="questions" id="T0M-h5-Qea"/>
                     <navigationItem key="navigationItem" id="UXh-s2-LD9"/>
                     <connections>
                         <outlet property="inputQuestion" destination="alv-yJ-Lnk" id="bXD-SK-Wf7"/>
@@ -414,7 +414,7 @@
             </objects>
             <point key="canvasLocation" x="3413" y="891"/>
         </scene>
-        <!--Item-->
+        <!--Attendance-->
         <scene sceneID="Ln0-1F-bVv">
             <objects>
                 <viewController id="DRV-xq-0w6" customClass="LoggedInViewController" customModule="iClassAuth" customModuleProvider="target" sceneMemberID="viewController">
@@ -431,11 +431,10 @@
                                     <action selector="logOut:" destination="Yfq-kz-4cp" eventType="touchUpInside" id="rrV-9i-1bK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUh-NA-uS4">
-                                <rect key="frame" x="137" y="360" width="140" height="114"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.92349421980000002" green="0.50446393199999995" blue="0.56030234310000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUh-NA-uS4">
+                                <rect key="frame" x="83" y="339" width="248" height="179"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="27"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="I'm Here!"/>
                                 <connections>
@@ -444,14 +443,24 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XUh-NA-uS4" firstAttribute="width" secondItem="g3U-U0-RuD" secondAttribute="width" multiplier="0.6" id="Au8-pF-o6F"/>
+                            <constraint firstItem="XUh-NA-uS4" firstAttribute="height" secondItem="g3U-U0-RuD" secondAttribute="height" multiplier="0.2" id="JjA-xN-Se6"/>
+                            <constraint firstItem="XUh-NA-uS4" firstAttribute="centerX" secondItem="cAj-Z2-p1C" secondAttribute="centerX" id="T1b-rk-bJc"/>
+                            <constraint firstItem="XUh-NA-uS4" firstAttribute="centerY" secondItem="cAj-Z2-p1C" secondAttribute="centerY" id="dws-AW-IoB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cAj-Z2-p1C"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Exa-84-xp8"/>
+                    <tabBarItem key="tabBarItem" title="Attendance" image="attendance" id="Exa-84-xp8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0y-QD-Y58" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Yfq-kz-4cp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="147"/>
+            <point key="canvasLocation" x="1900" y="162"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="attendance" width="25" height="25"/>
+        <image name="questions" width="25" height="25"/>
+    </resources>
 </document>
