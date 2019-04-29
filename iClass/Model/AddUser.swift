@@ -13,14 +13,16 @@ import Firebase
 let db = Firestore.firestore()
 
 func addUser(user: User) {
-    db.collection("Users").document(user.id).setData([
-        "name": user.name,
-        "courses": user.courses
-    ], merge: true) { err in
-        if let err = err {
-            print("Error writing document: \(err)")
-        } else {
-            print("Document successfully written!")
-        }
+    if (user.courses == [""] ) {
+        db.collection("Users").document(user.id).setData([
+            "name": user.name,
+            "teaching": user.teaching
+            ], merge: true)
+    } else {
+        db.collection("Users").document(user.id).setData([
+            "name": user.name,
+            "courses": user.courses
+            ], merge: true)
     }
+    
 }

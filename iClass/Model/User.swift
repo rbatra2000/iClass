@@ -12,11 +12,12 @@ class User {
     let name: String
     let id: String
     var courses = [String]()
-
+    var teaching = [String]()
     
-    init(name: String, id: String, course: String) {
+    init(name: String, id: String, course: String, teaching: String) {
         self.name = name
         self.id = id
-        courses.append(course)
+        self.courses.append(course)
+        self.teaching.append(teaching)
     }
 }
