@@ -194,6 +194,7 @@
                     <connections>
                         <segue destination="DRV-xq-0w6" kind="relationship" relationship="viewControllers" id="sKq-Fl-qcd"/>
                         <segue destination="X9R-JY-OXJ" kind="relationship" relationship="viewControllers" id="Scc-rg-Ofx"/>
+                        <segue destination="vZr-Rh-uZI" kind="relationship" relationship="viewControllers" id="6au-lY-ejE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BMh-Cr-3bz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -203,7 +204,7 @@
         <!--Questions-->
         <scene sceneID="ApF-VW-ITE">
             <objects>
-                <viewController id="X9R-JY-OXJ" customClass="ViewController" customModule="QuestionsView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="X9R-JY-OXJ" customClass="ViewController" customModule="iClassAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4dx-wG-5cB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,12 +274,90 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbC-ky-Lmp" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="891"/>
+            <point key="canvasLocation" x="1900" y="580"/>
+        </scene>
+        <!--Resources-->
+        <scene sceneID="YOE-g1-gCZ">
+            <objects>
+                <viewController id="vZr-Rh-uZI" customClass="ResourcesViewController" customModule="iClassAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jpw-Dj-UEJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hs-VO-bdg">
+                                <rect key="frame" x="0.0" y="84" width="414" height="89.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNA-Jk-adj">
+                                <rect key="frame" x="0.0" y="212.5" width="414" height="89.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Gradescope"/>
+                                <connections>
+                                    <action selector="gradescope:" destination="vZr-Rh-uZI" eventType="touchUpInside" id="kzs-cy-npW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFM-Dj-Bl7">
+                                <rect key="frame" x="0.0" y="383.5" width="414" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Email Professor"/>
+                                <connections>
+                                    <action selector="emailprof:" destination="vZr-Rh-uZI" eventType="touchUpInside" id="Rrg-Jd-jZ2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-tt-07x">
+                                <rect key="frame" x="0.0" y="469.5" width="414" height="89.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Class Location"/>
+                                <connections>
+                                    <action selector="classLocation:" destination="vZr-Rh-uZI" eventType="touchUpInside" id="fFc-nQ-rao"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXM-tz-Wt1">
+                                <rect key="frame" x="0.0" y="298" width="414" height="89.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="CalCentral"/>
+                                <connections>
+                                    <action selector="calcentral:" destination="vZr-Rh-uZI" eventType="touchUpInside" id="J64-NV-jPI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xw7-tt-07x" firstAttribute="height" secondItem="Jpw-Dj-UEJ" secondAttribute="height" multiplier="0.1" id="2UA-jk-HSH"/>
+                            <constraint firstItem="tFM-Dj-Bl7" firstAttribute="centerX" secondItem="PcA-Ke-G9L" secondAttribute="centerX" id="6YP-Kx-Dlb"/>
+                            <constraint firstItem="Xw7-tt-07x" firstAttribute="width" secondItem="Jpw-Dj-UEJ" secondAttribute="width" id="7oW-wH-7cz"/>
+                            <constraint firstItem="6hs-VO-bdg" firstAttribute="height" secondItem="Jpw-Dj-UEJ" secondAttribute="height" multiplier="0.1" id="Ioe-NG-FSK"/>
+                            <constraint firstItem="CNA-Jk-adj" firstAttribute="centerX" secondItem="PcA-Ke-G9L" secondAttribute="centerX" id="M55-ps-pJZ"/>
+                            <constraint firstItem="tFM-Dj-Bl7" firstAttribute="width" secondItem="Jpw-Dj-UEJ" secondAttribute="width" id="PfX-t0-ODg"/>
+                            <constraint firstItem="GXM-tz-Wt1" firstAttribute="centerY" secondItem="PcA-Ke-G9L" secondAttribute="centerY" multiplier="0.8" id="R8f-0R-TTC"/>
+                            <constraint firstItem="CNA-Jk-adj" firstAttribute="width" secondItem="Jpw-Dj-UEJ" secondAttribute="width" id="SI5-aB-OK7"/>
+                            <constraint firstItem="Xw7-tt-07x" firstAttribute="centerY" secondItem="PcA-Ke-G9L" secondAttribute="centerY" multiplier="1.2" id="Vre-vL-PpI"/>
+                            <constraint firstItem="GXM-tz-Wt1" firstAttribute="width" secondItem="Jpw-Dj-UEJ" secondAttribute="width" id="Xjt-CK-C8F"/>
+                            <constraint firstItem="CNA-Jk-adj" firstAttribute="height" secondItem="Jpw-Dj-UEJ" secondAttribute="height" multiplier="0.1" id="ZCr-kJ-4jc"/>
+                            <constraint firstItem="tFM-Dj-Bl7" firstAttribute="centerY" secondItem="PcA-Ke-G9L" secondAttribute="centerY" id="dMA-NC-ImD"/>
+                            <constraint firstItem="GXM-tz-Wt1" firstAttribute="height" secondItem="Jpw-Dj-UEJ" secondAttribute="height" multiplier="0.1" id="daY-lD-tQq"/>
+                            <constraint firstItem="GXM-tz-Wt1" firstAttribute="centerX" secondItem="PcA-Ke-G9L" secondAttribute="centerX" id="ngk-L8-Nu5"/>
+                            <constraint firstItem="Xw7-tt-07x" firstAttribute="centerX" secondItem="PcA-Ke-G9L" secondAttribute="centerX" id="pUu-QE-qNL"/>
+                            <constraint firstItem="tFM-Dj-Bl7" firstAttribute="height" secondItem="Jpw-Dj-UEJ" secondAttribute="height" multiplier="0.1" id="s8j-9l-sbH"/>
+                            <constraint firstItem="6hs-VO-bdg" firstAttribute="centerX" secondItem="PcA-Ke-G9L" secondAttribute="centerX" id="sXb-LI-eeU"/>
+                            <constraint firstItem="6hs-VO-bdg" firstAttribute="width" secondItem="Jpw-Dj-UEJ" secondAttribute="width" id="uak-K6-8l2"/>
+                            <constraint firstItem="CNA-Jk-adj" firstAttribute="centerY" secondItem="PcA-Ke-G9L" secondAttribute="centerY" multiplier="0.6" id="zgd-aw-sPW"/>
+                            <constraint firstItem="6hs-VO-bdg" firstAttribute="centerY" secondItem="PcA-Ke-G9L" secondAttribute="centerY" multiplier="0.3" id="zh2-gl-RmH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PcA-Ke-G9L"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Resources" id="JsG-Gc-1Ht"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PWf-e0-CuK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1900" y="1278"/>
         </scene>
         <!--Questions Pop Up Controller View Controller-->
         <scene sceneID="tsS-9f-Bya">
             <objects>
-                <viewController storyboardIdentifier="PopUpID" id="eMV-V0-I4U" customClass="QuestionsPopUpControllerViewController" customModule="QuestionsView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopUpID" id="eMV-V0-I4U" customClass="QuestionsPopUpControllerViewController" customModule="iClassAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s47-tR-rPA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -290,7 +369,7 @@
                                         <rect key="frame" x="0.0" y="54" width="373" height="484"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionsCell" rowHeight="47" id="pKS-17-ffK" customClass="QuestionsTableViewCell" customModule="QuestionsView" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionsCell" rowHeight="47" id="pKS-17-ffK" customClass="QuestionsTableViewCell" customModule="iClassAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="373" height="47"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pKS-17-ffK" id="iJd-VL-y9j">
@@ -356,12 +435,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BD8-Yb-R0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2697" y="891"/>
+            <point key="canvasLocation" x="2696" y="580"/>
         </scene>
         <!--Literal Question View Controller-->
         <scene sceneID="Kiz-hL-0M2">
             <objects>
-                <viewController storyboardIdentifier="LiteralQuestionID" id="8ef-hl-nPo" customClass="LiteralQuestionViewController" customModule="QuestionsView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LiteralQuestionID" id="8ef-hl-nPo" customClass="LiteralQuestionViewController" customModule="iClassAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZOl-IJ-AzU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,7 +491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wb-FI-EtX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3413" y="891"/>
+            <point key="canvasLocation" x="3412" y="580"/>
         </scene>
         <!--Attendance-->
         <scene sceneID="Ln0-1F-bVv">
@@ -456,7 +535,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0y-QD-Y58" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Yfq-kz-4cp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="162"/>
+            <point key="canvasLocation" x="1900" y="-135"/>
         </scene>
     </scenes>
     <resources>
