@@ -17,29 +17,12 @@ func addCourse(course: Course) {
     docRef.updateData(["students": FieldValue.arrayUnion([course.student])])
 }
 
-func addNewCourse(course: Course, email: String) {
-    
-    let docRef = db.collection("Courses").document(course.id)
-        
-    docRef.setData([
-        "email": email,
-        "students": [course.student],
-    ], merge: true) { err in
-        if let err = err {
-            print("Error writing document: \(err)")
-        } else {
-            print("Document successfully written!")
-        }
-    }
-}
-
 func addNewCourseProf(course: Course, email: String, password: String) {
     
     let docRef = db.collection("Courses").document(course.id)
     
     docRef.setData([
         "email": email,
-        "students": [course.student],
         "password": password
     ], merge: true) { err in
         if let err = err {
@@ -49,16 +32,19 @@ func addNewCourseProf(course: Course, email: String, password: String) {
         }
     }
 }
-
 func changeProf(course: Course, email: String) {
     let docRef = db.collection("Courses").document(course.id)
     docRef.getDocument { (document, error) in
         if let document = document, document.exists {
+            let prev = document.get("email") as! String
+            
+            db.collection("Users").document(prev).updateData([
+                "teaching": FieldValue.arrayRemove([course.id]),
+            ])
+            
             docRef.setData([
                 "email": email,
-                ], merge: true)
-        } else {
-            print("Document does not exist")
+            ], merge: true)
         }
     }
     
