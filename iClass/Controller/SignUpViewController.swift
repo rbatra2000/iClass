@@ -30,55 +30,34 @@ class SignUpViewController: UIViewController {
         status.tintColor = UIColor .flatWhite();
     }
     
+    func studentCreateAccount() {
+        let person = User(name: self.name.text!, id: self.email.text!, course: (self.id.text)!, teaching: "")
+        addUser(user: person)
+        let course = Course(id: self.id.text!, student: self.email.text!)
+        
+        let docRef = db.collection("Courses").document(course.id)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                addCourse(course: course)
+                try! Auth.auth().signOut()
+                self.dismiss(animated: true, completion: nil)
+            }
+            let alert = UIAlertController(title: "Please check the course ID", message: "Make sure your professor has already created an account!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.revert()
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func confirm(_ sender: UIButton) {
         if (email.text!.hasSuffix(".edu") && id.text != "" && name.text!.isName && phone.text!.isPhoneNumber) {
             Auth.auth().createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 if user != nil {
                     if self.status.selectedSegmentIndex == 0 {
-                        
-                        let person = User(name: self.name.text!, id: self.email.text!, course: (self.id.text)!, teaching: "")
-                        addUser(user: person)
-                        let course = Course(id: self.id.text!, student: self.email.text!)
-                        
-                        let docRef = db.collection("Courses").document(course.id)
-                    
-                        docRef.getDocument { (document, error) in
-                            if let document = document, document.exists {
-                                addCourse(course: course)
-                                try! Auth.auth().signOut()
-                                self.dismiss(animated: true, completion: nil)
-
-                            }
-                            let alert = UIAlertController(title: "Add New Class", message: "Please input the professor's email", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-                                let user = Auth.auth().currentUser
-                                    user!.delete { error in
-                                        if let error = error {
-                                            // An error happened.
-                                            print(error)
-                                        } else {
-                                            // Account deleted.
-                                            db.collection("Users").document(self.email.text!).delete()
-                                        }
-                                }
-                            }))
-                            alert.addTextField(configurationHandler: { textField in
-                                textField.placeholder = "Professor Email"
-                            })
-                            
-                        
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                                if let email = alert.textFields?.first?.text {
-                                    
-                                    // Check if professor exists for course defined
-                                    // addNewCourse(course: course)
-                                    try! Auth.auth().signOut()
-                                    self.dismiss(animated: true, completion: nil)
-                                }
-                            }))
-                            
-                            self.present(alert, animated: true, completion: nil)
-                        }
+                        self.studentCreateAccount()
                     } else {
                         let person = User(name: self.name.text!, id: self.email.text!, course: "", teaching: (self.id.text)!)
                         addUser(user: person)
@@ -96,30 +75,14 @@ class SignUpViewController: UIViewController {
                                 })
                                 
                                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-                                    let user = Auth.auth().currentUser
-                                    user!.delete { error in
-                                        if let error = error {
-                                            print(error)
-                                        } else {
-                                            // Account deleted.
-                                            db.collection("Users").document(self.email.text!).delete()
-                                        }
-                                    }
+                                    self.revert()
                                 }))
                                 
                                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                                     if let password = alert.textFields?.first?.text {
                                         if String(describing: document.get("password")!) != password {
                                             // Password Wrong
-                                            let user = Auth.auth().currentUser
-                                            user!.delete { error in
-                                                if let error = error {
-                                                    print(error)
-                                                } else {
-                                                    // Account deleted.
-                                                    db.collection("Users").document(self.email.text!).delete()
-                                                }
-                                            }
+                                            self.revert()
                                         } else {
                                             // Password Correct
                                             changeProf(course: course, email: self.email.text!)
@@ -133,15 +96,7 @@ class SignUpViewController: UIViewController {
                             }
                             let alert = UIAlertController(title: "New Class", message: "Please create a password to protect the class.", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-                                let user = Auth.auth().currentUser
-                                user!.delete { error in
-                                    if let error = error {
-                                        print(error)
-                                    } else {
-                                        // Account deleted.
-                                        db.collection("Users").document(self.email.text!).delete()
-                                    }
-                                }
+                                self.revert()
                             }))
                             alert.addTextField(configurationHandler: { textField in
                                 textField.placeholder = "Password"
@@ -177,6 +132,18 @@ class SignUpViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: nil))
             
             self.present(alert, animated: true)
+        }
+    }
+    
+    func revert() {
+        let user = Auth.auth().currentUser
+        user!.delete { error in
+            if let error = error {
+                print(error)
+            } else {
+                // Account deleted.
+                db.collection("Users").document(self.email.text!).delete()
+            }
         }
     }
     

@@ -28,28 +28,32 @@ class InitialViewController: UIViewController {
     @IBAction func login(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
             if user != nil {
-                print("Worked")
-                
                 let docRef = db.collection("Users").document(self.email.text!)
                 
                 docRef.getDocument { (document, error) in
                     if let document = document {
-                        if document.exists{
-                            let arr : [String] = document.get("courses") as! [String]
-                            if (!arr.contains(self.course.text!)) {
-                                
+                        if document.exists {
+                            var arrCourses : [String] = []
+                            var arrTeaching : [String] = []
+                            if (document.get("courses") != nil) {
+                                arrCourses = document.get("courses") as! [String]
+                            }
+                            if (document.get("teaching") != nil) {
+                                arrTeaching = document.get("teaching") as! [String]
+                            }
+                            if (arrCourses.contains(self.course.text!) ) {
+                                self.performSegue(withIdentifier: "loginSegue", sender: sender)
+                            } else if (arrTeaching.contains(self.course.text!) ) {
+                                self.performSegue(withIdentifier: "professorSegue", sender: sender)
+                            } else {
                                 let alert = UIAlertController(title: "Oops!", message: "You have not signed up for that course!", preferredStyle: .alert)
-                                
+                            
                                 alert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: nil))
                                 self.present(alert, animated: true)
                                 try! Auth.auth().signOut()
                             }
-                        } else {
-                            print("Document does not exist")
                         }
                     }
-                
-                self.performSegue(withIdentifier: "loginSegue", sender: sender)
                 }
             } else {
                 if let error = error?.localizedDescription {
