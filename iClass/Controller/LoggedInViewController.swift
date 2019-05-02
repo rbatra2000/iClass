@@ -21,10 +21,8 @@ class LoggedInViewController: UIViewController {
     }
     
     @IBAction func logOut(_ sender: Any) {
-        print(course)
         try! Auth.auth().signOut()
-        _ = navigationController?.popViewController(animated: true)
-
+        self.performSegue(withIdentifier: "logout", sender: self)
     }
     
     /*

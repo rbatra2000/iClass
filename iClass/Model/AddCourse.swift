@@ -24,13 +24,7 @@ func addNewCourseProf(course: Course, email: String, password: String) {
     docRef.setData([
         "email": email,
         "password": password
-    ], merge: true) { err in
-        if let err = err {
-            print("Error writing document: \(err)")
-        } else {
-            print("Document successfully written!")
-        }
-    }
+    ], merge: true)
 }
 func changeProf(course: Course, email: String) {
     let docRef = db.collection("Courses").document(course.id)

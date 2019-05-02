@@ -8,6 +8,7 @@
 
 import UIKit
 import ChameleonFramework
+import Firebase
 
 class ProfessorViewController: UIViewController {
 
@@ -18,7 +19,12 @@ class ProfessorViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
+    @IBAction func logout(_ sender: Any) {
+        try! Auth.auth().signOut()
+        self.performSegue(withIdentifier: "logout", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 

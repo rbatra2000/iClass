@@ -62,5 +62,9 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    @IBAction func logout(_ sender: Any) {
+        try! Auth.auth().signOut()
+        self.performSegue(withIdentifier: "logout", sender: self)
+    }
 }
 
