@@ -1,15 +1,15 @@
 //
-//  QuestionsPopUpControllerViewController.swift
-//  QuestionsView
+//  TeacherQuestionViewController.swift
+//  iClass
 //
-//  Created by Nicholas Wang on 4/14/19.
-//  Copyright © 2019 Nicholas Wang. All rights reserved.
+//  Created by Nicholas Wang on 5/2/19.
+//  Copyright © 2019 Ritik Batra. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class QuestionsPopUpControllerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var questionText: String?
     var allQuestions: [String] = []
@@ -18,7 +18,7 @@ class QuestionsPopUpControllerViewController: UIViewController, UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let db = Firestore.firestore()
         
         db.collection("Question").getDocuments() { (querySnapshot, err) in
@@ -45,7 +45,7 @@ class QuestionsPopUpControllerViewController: UIViewController, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "questionsCell") as? QuestionsTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "teacherQuestionsCell") as? QuestionsTableViewCell {
             cell.questionLable.text = allQuestions[indexPath.row]
             return cell
         }
@@ -53,12 +53,12 @@ class QuestionsPopUpControllerViewController: UIViewController, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LiteralQuestionID") as! LiteralQuestionViewController
-        popUp.questionString = allQuestions[indexPath.row]
-        self.addChild(popUp)
-        popUp.view.frame = self.view.frame
-        self.view.addSubview(popUp.view)
-        popUp.didMove(toParent: self)
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func closePopUp(_ sender: AnyObject) {
@@ -88,10 +88,16 @@ class QuestionsPopUpControllerViewController: UIViewController, UITableViewDeleg
             }
         });
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
 
 }
