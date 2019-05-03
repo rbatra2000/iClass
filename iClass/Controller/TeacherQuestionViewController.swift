@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 import Firebase
 
 class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -18,6 +19,8 @@ class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(gradientStyle:UIGradientStyle.radial, withFrame:view.frame, andColors:[UIColor.flatPowderBlue() as Any, UIColor.flatMint() as Any])
 
         let db = Firestore.firestore()
         
@@ -32,11 +35,9 @@ class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITa
             self.questionsTable.reloadData()
         }
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         questionsTable.delegate = self
         questionsTable.dataSource = self
-        
-        self.showAnimate()
         
     }
     
@@ -53,51 +54,24 @@ class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /*let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TeacherLiteralID") as! TeacherLiteralQuestionViewController
+        popUp.questionString = allQuestions[indexPath.row]
+        self.addChild(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParent: self)*/
+        
+        performSegue(withIdentifier: "showTeacherQuestion", sender: indexPath)
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func closePopUp(_ sender: AnyObject) {
-        self.removeAnimate()
-        //self.view.removeFromSuperview()
-    }
-    
-    func showAnimate()
-    {
-        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        self.view.alpha = 0.0;
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.alpha = 1.0
-            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        });
-    }
-    
-    func removeAnimate()
-    {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.view.alpha = 0.0;
-        }, completion:{(finished : Bool)  in
-            if (finished)
-            {
-                self.view.removeFromSuperview()
-            }
-        });
-    }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "showTeacherQuestion") {
+            let dest = segue.destination as! TeacherLiteralQuestionViewController
+            let row = (sender as! NSIndexPath).row; //we know that sender is an NSIndexPath here.
+            let patientQuestionnaire = allQuestions[row]
+            dest.questionString = patientQuestionnaire
+        }
     }
-    */
-
+    
 }

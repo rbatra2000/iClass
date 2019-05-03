@@ -7,26 +7,39 @@
 //
 
 import UIKit
+import ChameleonFramework
+import Firebase
 
 class TeacherLiteralQuestionViewController: UIViewController {
-
+    
     @IBOutlet weak var questionLabel: UILabel!
+    var questionString: String! = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        questionLabel.numberOfLines = 0
+        
+        self.view.backgroundColor = UIColor(gradientStyle:UIGradientStyle.radial, withFrame:view.frame, andColors:[UIColor.flatPowderBlue() as Any, UIColor.flatMint() as Any])
+        
+        questionLabel.text = questionString
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    */
+    
+    
+    @IBAction func resolveButton(_ sender: Any) {
+        db.collection("Question").document(questionString).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
+    
 
 }
