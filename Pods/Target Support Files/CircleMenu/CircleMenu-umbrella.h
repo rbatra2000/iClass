@@ -10,9 +10,7 @@
 #endif
 #endif
 
-#import "MGSwipeButton.h"
-#import "MGSwipeTableCell.h"
 
-FOUNDATION_EXPORT double MGSwipeTableCellVersionNumber;
-FOUNDATION_EXPORT const unsigned char MGSwipeTableCellVersionString[];
+FOUNDATION_EXPORT double CircleMenuVersionNumber;
+FOUNDATION_EXPORT const unsigned char CircleMenuVersionString[];
 

@@ -108,20 +108,24 @@
                                     <action selector="logout:" destination="Xnt-Bj-McF" eventType="touchUpInside" id="jMf-gC-WDV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJl-Bh-zuj">
-                                <rect key="frame" x="106" y="268" width="212" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="Enable Attendance"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzf-Oy-K9q">
-                                <rect key="frame" x="116" y="470" width="193" height="44"/>
+                                <rect key="frame" x="116" y="620" width="193" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Check Questions"/>
                                 <connections>
                                     <segue destination="tDm-I4-pKV" kind="show" id="qb8-Sg-bgW"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjC-1J-DfS" customClass="CircleMenu" customModule="CircleMenu">
+                                <rect key="frame" x="47" y="228" width="246" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon_menu"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonsCount">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -134,7 +138,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Om-X7-Hlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rlK-kG-qoG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="135" y="-670"/>
+            <point key="canvasLocation" x="134.78260869565219" y="-670.3125"/>
         </scene>
         <!--Teacher Question View Controller-->
         <scene sceneID="0Uv-Db-c5p">
@@ -629,6 +633,7 @@
     </scenes>
     <resources>
         <image name="attendance" width="25" height="25"/>
+        <image name="icon_menu" width="120" height="120"/>
         <image name="questions" width="25" height="25"/>
     </resources>
 </document>

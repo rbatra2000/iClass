@@ -27,6 +27,7 @@ class InitialViewController: UIViewController {
     
     @IBAction func login(_ sender: UIButton) {
         email.text! = email.text!.lowercased()
+        course.text! = course.text!.uppercased()
         Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
             if user != nil {
                 let docRef = db.collection("Users").document(self.email.text!)
