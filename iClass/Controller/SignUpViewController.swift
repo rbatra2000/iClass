@@ -148,7 +148,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "logout", sender: sender)
     }
     
     

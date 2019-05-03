@@ -9,5 +9,6 @@ target 'iClass' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'ChameleonFramework'
+  pod 'MGSwipeTableCell'
 
 end
