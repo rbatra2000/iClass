@@ -74,11 +74,17 @@ class InitialViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if (sender as? UIButton) != nil {
+        /*if (sender as? UIButton) != nil {
             if let dest = segue.destination as? LoggedInViewController {
                 dest.course = course.text!
             }
+        }*/
+        
+        if segue.identifier == "professorSegue" {
+            let dest = segue.destination as! ProfessorViewController
+            dest.course = course.text!
         }
+        
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
