@@ -32,7 +32,7 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
         
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                self.welcome.text = "Welcome, \nProfessor \(document.get("name")!)"
+                self.welcome.text = "Welcome, Professor \(document.get("name")!)"
             }
         }
         
@@ -94,11 +94,11 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
     }
     
     func add() {
-        
+        performSegue(withIdentifier: "add", sender: self)
     }
     
     func check() {
-        
+        performSegue(withIdentifier: "check", sender: self)
     }
     
     
@@ -123,17 +123,6 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         
     }
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 }
