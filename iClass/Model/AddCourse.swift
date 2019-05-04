@@ -35,7 +35,6 @@ func changeProf(course: Course, email: String) {
             db.collection("Users").document(prev).updateData([
                 "teaching": FieldValue.arrayRemove([course.id]),
             ])
-            
             docRef.setData([
                 "email": email,
             ], merge: true)
