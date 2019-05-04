@@ -17,11 +17,8 @@ class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITa
 
     @IBOutlet weak var questionsTable: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor(gradientStyle:UIGradientStyle.radial, withFrame:view.frame, andColors:[UIColor.flatPowderBlue() as Any, UIColor.flatMint() as Any])
-
+    override func viewDidAppear(_ animated: Bool) {
+        allQuestions = []
         let db = Firestore.firestore()
         
         db.collection("Question").getDocuments() { (querySnapshot, err) in
@@ -34,8 +31,16 @@ class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITa
             }
             self.questionsTable.reloadData()
         }
-        
-        //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+    }
+    
+    @IBAction func close(_ sender: Any) {
+        performSegue(withIdentifier: "back", sender: self)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor(gradientStyle:UIGradientStyle.radial, withFrame:view.frame, andColors:[UIColor.flatPowderBlue() as Any, UIColor.flatMint() as Any])
+
         questionsTable.delegate = self
         questionsTable.dataSource = self
         
@@ -72,6 +77,10 @@ class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITa
             let patientQuestionnaire = allQuestions[row]
             dest.questionString = patientQuestionnaire
         }
+    }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        
     }
     
 }

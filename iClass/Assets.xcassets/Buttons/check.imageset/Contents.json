@@ -1,15 +1,12 @@
 {
   "images" : [
     {
-      "idiom" : "universal"
-    },
-    {
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "search-btn2.pdf",
+      "filename" : "correct-symbol.png",
       "scale" : "2x"
     },
     {
