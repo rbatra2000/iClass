@@ -64,5 +64,17 @@ class ProfessorStudentTableViewController: UIViewController, UITableViewDataSour
         self.dismiss(animated: true, completion: nil)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /*let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TeacherLiteralID") as! TeacherLiteralQuestionViewController
+         popUp.questionString = allQuestions[indexPath.row]
+         self.addChild(popUp)
+         popUp.view.frame = self.view.frame
+         self.view.addSubview(popUp.view)
+         popUp.didMove(toParent: self)*/
+        
+        performSegue(withIdentifier: "attendancePopup", sender: indexPath)
+        
+    }
+    
 
 }

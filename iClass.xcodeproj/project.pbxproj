@@ -32,6 +32,8 @@
 		FF3A59AA226EF5730082F904 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A59A9226EF5730082F904 /* Course.swift */; };
 		FF6A0BFE225AD0FA002E1E48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF6A0BFD225AD0FA002E1E48 /* GoogleService-Info.plist */; };
 		FF8B4B7D227E01B8003DB5E6 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B4B7C227E01B8003DB5E6 /* AddClassViewController.swift */; };
+		FF8D1EED227FA2CC00A45BDC /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1EEC227FA2CC00A45BDC /* AttendanceViewController.swift */; };
+		FF8D1EEF227FA5BB00A45BDC /* AttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1EEE227FA5BB00A45BDC /* AttendanceTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		FF3A59A9226EF5730082F904 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		FF6A0BFD225AD0FA002E1E48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF8B4B7C227E01B8003DB5E6 /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
+		FF8D1EEC227FA2CC00A45BDC /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
+		FF8D1EEE227FA5BB00A45BDC /* AttendanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 				00130170227BC84F006C9E3D /* TeacherLiteralQuestionViewController.swift */,
 				FF8B4B7C227E01B8003DB5E6 /* AddClassViewController.swift */,
 				0091C6C9227E47A400D9F67B /* ProfessorStudentTableViewController.swift */,
+				FF8D1EEC227FA2CC00A45BDC /* AttendanceViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			children = (
 				0067E2A522728D5A00B0312C /* QuestionsTableViewCell.swift */,
 				0091C6CB227E491700D9F67B /* StudentTableViewCell.swift */,
+				FF8D1EEE227FA5BB00A45BDC /* AttendanceTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -322,11 +328,13 @@
 				0091C6CC227E491700D9F67B /* StudentTableViewCell.swift in Sources */,
 				0067E2AF227291C800B0312C /* Location.swift in Sources */,
 				0091C6CA227E47A400D9F67B /* ProfessorStudentTableViewController.swift in Sources */,
+				FF8D1EED227FA2CC00A45BDC /* AttendanceViewController.swift in Sources */,
 				0067E2AB22728D5A00B0312C /* QuestionViewController.swift in Sources */,
 				FF3A59A8226ED1640082F904 /* AddCourse.swift in Sources */,
 				00130171227BC84F006C9E3D /* TeacherLiteralQuestionViewController.swift in Sources */,
 				FF8B4B7D227E01B8003DB5E6 /* AddClassViewController.swift in Sources */,
 				0067E2A922728D5A00B0312C /* QuestionsTableViewCell.swift in Sources */,
+				FF8D1EEF227FA5BB00A45BDC /* AttendanceTableViewCell.swift in Sources */,
 				0067E2AE227291C800B0312C /* LocationsStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
