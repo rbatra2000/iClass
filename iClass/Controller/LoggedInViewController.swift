@@ -9,10 +9,12 @@
 import UIKit
 import ChameleonFramework
 import FirebaseAuth
+import Firebase
 
 class LoggedInViewController: UIViewController {
     
     var course: String = ""
+    var email: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,25 @@ class LoggedInViewController: UIViewController {
     @IBAction func logOut(_ sender: Any) {
         try! Auth.auth().signOut()
         self.performSegue(withIdentifier: "logout", sender: self)
+    }
+    
+    @IBAction func addClass(_ sender: Any) {
+        let alert = UIAlertController(title: "Enter Class ID:", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Input Class ID here..."
+        })
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            
+            if let course = alert.textFields?.first?.text {
+                let docRef = db.collection("Courses").document(course)
+                docRef.updateData(["students": FieldValue.arrayUnion([self.email])])
+            }
+        }))
+        
+        self.present(alert, animated: true)
     }
     
     /*
