@@ -912,7 +912,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-aK-FCb">
-                                <rect key="frame" x="20" y="44" width="70" height="30"/>
+                                <rect key="frame" x="20" y="44" width="70" height="45"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
@@ -927,14 +927,26 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="I'm Here!"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZn-bf-qNT">
+                                <rect key="frame" x="290" y="48.5" width="124" height="44.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Add Class"/>
+                                <connections>
+                                    <action selector="addClass:" destination="DRV-xq-0w6" eventType="touchUpInside" id="PDF-n8-lBy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XUh-NA-uS4" firstAttribute="width" secondItem="g3U-U0-RuD" secondAttribute="width" multiplier="0.6" id="Au8-pF-o6F"/>
+                            <constraint firstItem="nZn-bf-qNT" firstAttribute="centerY" secondItem="cAj-Z2-p1C" secondAttribute="centerY" multiplier="0.05" constant="49.299999999999997" id="IRN-Hy-y6f"/>
                             <constraint firstItem="XUh-NA-uS4" firstAttribute="height" secondItem="g3U-U0-RuD" secondAttribute="height" multiplier="0.2" id="JjA-xN-Se6"/>
+                            <constraint firstItem="nZn-bf-qNT" firstAttribute="height" secondItem="g3U-U0-RuD" secondAttribute="height" multiplier="0.05" id="Lcj-uV-N03"/>
+                            <constraint firstItem="nZn-bf-qNT" firstAttribute="width" secondItem="g3U-U0-RuD" secondAttribute="width" multiplier="0.3" id="Mko-fR-tf3"/>
                             <constraint firstItem="yhT-aK-FCb" firstAttribute="top" secondItem="cAj-Z2-p1C" secondAttribute="top" id="Scd-iD-drv"/>
                             <constraint firstItem="XUh-NA-uS4" firstAttribute="centerX" secondItem="cAj-Z2-p1C" secondAttribute="centerX" id="T1b-rk-bJc"/>
-                            <constraint firstItem="yhT-aK-FCb" firstAttribute="height" secondItem="g3U-U0-RuD" secondAttribute="height" multiplier="0.05" constant="-14.800000000000004" id="Xh4-RW-HbL"/>
+                            <constraint firstItem="yhT-aK-FCb" firstAttribute="height" secondItem="g3U-U0-RuD" secondAttribute="height" multiplier="0.05" id="Xh4-RW-HbL"/>
+                            <constraint firstItem="nZn-bf-qNT" firstAttribute="centerX" secondItem="cAj-Z2-p1C" secondAttribute="centerX" multiplier="1.7" id="Ymq-Jg-7oa"/>
                             <constraint firstItem="XUh-NA-uS4" firstAttribute="centerY" secondItem="cAj-Z2-p1C" secondAttribute="centerY" id="dws-AW-IoB"/>
                             <constraint firstItem="yhT-aK-FCb" firstAttribute="leading" secondItem="cAj-Z2-p1C" secondAttribute="leading" constant="20" id="rcT-bz-5Yp"/>
                             <constraint firstItem="yhT-aK-FCb" firstAttribute="width" secondItem="g3U-U0-RuD" secondAttribute="width" multiplier="0.05" constant="49.299999999999997" id="wbR-FC-Auw"/>
