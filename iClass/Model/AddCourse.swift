@@ -23,6 +23,7 @@ func addNewCourseProf(course: Course, email: String, password: String) {
     
     docRef.setData([
         "email": email,
+        "students": [],
         "password": password
     ], merge: true)
 }
