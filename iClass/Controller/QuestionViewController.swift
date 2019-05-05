@@ -23,6 +23,10 @@ class QuestionViewController: UIViewController {
         inputQuestion.layer.masksToBounds = true
         inputQuestion.layer.borderColor = UIColor.lightGray.cgColor
         inputQuestion.layer.borderWidth = 3.0
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
     }
     
     @IBAction func showQuestionsPopUp(_ sender: Any) {
