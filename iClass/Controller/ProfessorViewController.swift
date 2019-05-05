@@ -17,6 +17,8 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
     let colors = [UIColor.red, UIColor.gray, UIColor.green, UIColor.purple]
     @IBOutlet weak var welcome: UILabel!
     
+    var course: String = ""
+    
     
     let items: [(icon: String, color: UIColor)] = [
         ("logout", UIColor(red: 0.19, green: 0.57, blue: 1, alpha: 1)),
@@ -122,6 +124,13 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "check" {
+            let dest = segue.destination as! ProfessorStudentTableViewController
+            dest.course = course
+        }
     }
 
     

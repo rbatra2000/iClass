@@ -11,7 +11,6 @@ import Firebase
 
 class QuestionsPopUpControllerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var questionText: String?
     var allQuestions: [String] = []
 
     @IBOutlet weak var questionsTable: UITableView!

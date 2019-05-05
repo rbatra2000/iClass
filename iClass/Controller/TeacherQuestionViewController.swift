@@ -58,6 +58,10 @@ class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITa
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 35
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         /*let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TeacherLiteralID") as! TeacherLiteralQuestionViewController
         popUp.questionString = allQuestions[indexPath.row]
