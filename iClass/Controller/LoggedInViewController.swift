@@ -37,7 +37,7 @@ class LoggedInViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             
             let email = Auth.auth().currentUser!.email!
-            let c = Course(id: (alert.textFields?.first!.text)!, student: email)
+            let c = Course(id: (alert.textFields?.first!.text)!.uppercased(), student: email)
             
             db.collection("Users").document(email).updateData([
                 "courses": FieldValue.arrayUnion([c.id]),
