@@ -14,7 +14,6 @@ import Firebase
 class LoggedInViewController: UIViewController {
     
     var course: String = ""
-    var email: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +36,27 @@ class LoggedInViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             
-            if let course = alert.textFields?.first?.text {
-                let docRef = db.collection("Courses").document(course)
-                docRef.updateData(["students": FieldValue.arrayUnion([self.email])])
+            let email = Auth.auth().currentUser!.email!
+            let c = Course(id: (alert.textFields?.first!.text)!.uppercased(), student: email)
+            
+            db.collection("Users").document(email).updateData([
+                "courses": FieldValue.arrayUnion([c.id]),
+                ])
+            
+            let docRef = db.collection("Courses").document(c.id)
+            
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    addCourse(course: c)
+                } else {
+                    let alert = UIAlertController(title: "Please check the course ID", message: "Make sure your professor has already created an account!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    
+                    
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
+            
         }))
         
         self.present(alert, animated: true)

@@ -29,7 +29,6 @@ class AttendanceViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
