@@ -844,7 +844,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="I'm Here!"/>
                                 <connections>
-                                    <action selector="attendanceButton:" destination="DRV-xq-0w6" eventType="touchUpInside" id="UQ8-cw-ayq"/>
+                                    <action selector="markHere:" destination="DRV-xq-0w6" eventType="touchUpInside" id="uAe-9U-hkt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZn-bf-qNT">
