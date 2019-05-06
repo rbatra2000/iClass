@@ -104,7 +104,7 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
         tracking = !tracking
         let docRef = db.collection("Courses").document(course)
         
-        docRef.setData([
+        docRef.updateData([
             "tracking": tracking
         ])
         
@@ -140,9 +140,9 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
             self.present(alert, animated: true)
         }
         
-        let docRef = db.collection("Courses").document(course)
+        let docRef2 = db.collection("Courses").document(course)
         
-        docRef.setData(["latitude" : lat, "longitude": long], merge: true)
+        docRef2.updateData(["latitude" : lat, "longitude": long])
     }
     
     func add() {
