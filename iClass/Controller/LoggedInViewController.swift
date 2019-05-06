@@ -33,8 +33,8 @@ class LoggedInViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
         
-        docRef.updateData(["attendance": [email: FieldValue.arrayUnion([formatter.string(from: date)])]])
-        
+        //docRef.updateData(["attendance": [email: FieldValue.arrayUnion([formatter.string(from: date)])]])
+        docRef.setData(["attendance": [email: FieldValue.arrayUnion([formatter.string(from: date)])]], merge: true)
     }
     
     @IBAction func logOut(_ sender: Any) {
