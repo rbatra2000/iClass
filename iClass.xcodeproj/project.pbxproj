@@ -16,8 +16,9 @@
 		0067E2AE227291C800B0312C /* LocationsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2AC227291C800B0312C /* LocationsStorage.swift */; };
 		0067E2AF227291C800B0312C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2AD227291C800B0312C /* Location.swift */; };
 		0067E2B12272922900B0312C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0067E2B02272922900B0312C /* AppDelegate.swift */; };
-		0091C6CA227E47A400D9F67B /* ProfessorStudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091C6C9227E47A400D9F67B /* ProfessorStudentTableViewController.swift */; };
 		0091C6CC227E491700D9F67B /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091C6CB227E491700D9F67B /* StudentTableViewCell.swift */; };
+		0091C6CF227FDED000D9F67B /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091C6CD227FDED000D9F67B /* AttendanceViewController.swift */; };
+		0091C6D0227FDED000D9F67B /* ProfessorStudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091C6CE227FDED000D9F67B /* ProfessorStudentTableViewController.swift */; };
 		06DC7FA771FE30EB18598C2F /* Pods_iClass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30544F2791CEC085E51E606 /* Pods_iClass.framework */; };
 		FF034C2F22739C1700E0FFDD /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF034C2E22739C1700E0FFDD /* LoggedInViewController.swift */; };
 		FF034C3122739C1C00E0FFDD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF034C3022739C1C00E0FFDD /* SignUpViewController.swift */; };
@@ -32,7 +33,6 @@
 		FF3A59AA226EF5730082F904 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A59A9226EF5730082F904 /* Course.swift */; };
 		FF6A0BFE225AD0FA002E1E48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF6A0BFD225AD0FA002E1E48 /* GoogleService-Info.plist */; };
 		FF8B4B7D227E01B8003DB5E6 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B4B7C227E01B8003DB5E6 /* AddClassViewController.swift */; };
-		FF8D1EED227FA2CC00A45BDC /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1EEC227FA2CC00A45BDC /* AttendanceViewController.swift */; };
 		FF8D1EEF227FA5BB00A45BDC /* AttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1EEE227FA5BB00A45BDC /* AttendanceTableViewCell.swift */; };
 		FF8D1EF1227FBCC500A45BDC /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1EF0227FBCC500A45BDC /* ResourcesViewController.swift */; };
 /* End PBXBuildFile section */
@@ -47,8 +47,9 @@
 		0067E2AC227291C800B0312C /* LocationsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsStorage.swift; sourceTree = "<group>"; };
 		0067E2AD227291C800B0312C /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0067E2B02272922900B0312C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0091C6C9227E47A400D9F67B /* ProfessorStudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorStudentTableViewController.swift; sourceTree = "<group>"; };
 		0091C6CB227E491700D9F67B /* StudentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
+		0091C6CD227FDED000D9F67B /* AttendanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendanceViewController.swift; path = ../../../iclass/iClass/Controller/AttendanceViewController.swift; sourceTree = "<group>"; };
+		0091C6CE227FDED000D9F67B /* ProfessorStudentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfessorStudentTableViewController.swift; path = ../../../iclass/iClass/Controller/ProfessorStudentTableViewController.swift; sourceTree = "<group>"; };
 		48FE4CD375D2F617B9EDD500 /* Pods-iClass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iClass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iClass/Pods-iClass.debug.xcconfig"; sourceTree = "<group>"; };
 		6EAFFE4C5973490E7CFD8D9A /* Pods-iClass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iClass.release.xcconfig"; path = "Pods/Target Support Files/Pods-iClass/Pods-iClass.release.xcconfig"; sourceTree = "<group>"; };
 		C30544F2791CEC085E51E606 /* Pods_iClass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iClass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +68,6 @@
 		FF3A59A9226EF5730082F904 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		FF6A0BFD225AD0FA002E1E48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF8B4B7C227E01B8003DB5E6 /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
-		FF8D1EEC227FA2CC00A45BDC /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
 		FF8D1EEE227FA5BB00A45BDC /* AttendanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTableViewCell.swift; sourceTree = "<group>"; };
 		FF8D1EF0227FBCC500A45BDC /* ResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,8 +149,8 @@
 				0013016E227BC574006C9E3D /* TeacherQuestionViewController.swift */,
 				00130170227BC84F006C9E3D /* TeacherLiteralQuestionViewController.swift */,
 				FF8B4B7C227E01B8003DB5E6 /* AddClassViewController.swift */,
-				0091C6C9227E47A400D9F67B /* ProfessorStudentTableViewController.swift */,
-				FF8D1EEC227FA2CC00A45BDC /* AttendanceViewController.swift */,
+				0091C6CD227FDED000D9F67B /* AttendanceViewController.swift */,
+				0091C6CE227FDED000D9F67B /* ProfessorStudentTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -320,6 +320,7 @@
 				FF23295E22696D2700EC05E9 /* AddUser.swift in Sources */,
 				FF3A59AA226EF5730082F904 /* Course.swift in Sources */,
 				0067E2A822728D5A00B0312C /* LiteralQuestionViewController.swift in Sources */,
+				0091C6CF227FDED000D9F67B /* AttendanceViewController.swift in Sources */,
 				0067E2B12272922900B0312C /* AppDelegate.swift in Sources */,
 				FF034C2F22739C1700E0FFDD /* LoggedInViewController.swift in Sources */,
 				FF034C3322739C2200E0FFDD /* InitialViewController.swift in Sources */,
@@ -331,13 +332,12 @@
 				0091C6CC227E491700D9F67B /* StudentTableViewCell.swift in Sources */,
 				FF8D1EF1227FBCC500A45BDC /* ResourcesViewController.swift in Sources */,
 				0067E2AF227291C800B0312C /* Location.swift in Sources */,
-				0091C6CA227E47A400D9F67B /* ProfessorStudentTableViewController.swift in Sources */,
-				FF8D1EED227FA2CC00A45BDC /* AttendanceViewController.swift in Sources */,
 				0067E2AB22728D5A00B0312C /* QuestionViewController.swift in Sources */,
 				FF3A59A8226ED1640082F904 /* AddCourse.swift in Sources */,
 				00130171227BC84F006C9E3D /* TeacherLiteralQuestionViewController.swift in Sources */,
 				FF8B4B7D227E01B8003DB5E6 /* AddClassViewController.swift in Sources */,
 				0067E2A922728D5A00B0312C /* QuestionsTableViewCell.swift in Sources */,
+				0091C6D0227FDED000D9F67B /* ProfessorStudentTableViewController.swift in Sources */,
 				FF8D1EEF227FA5BB00A45BDC /* AttendanceTableViewCell.swift in Sources */,
 				0067E2AE227291C800B0312C /* LocationsStorage.swift in Sources */,
 			);
