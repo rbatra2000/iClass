@@ -85,6 +85,14 @@ class InitialViewController: UIViewController {
             dest.course = course.text!
         }
         
+        if segue.identifier == "loginSegue" {
+            let dest = segue.destination as! UITabBarController
+
+            let logged = dest.viewControllers![0] as! LoggedInViewController
+            
+            logged.course = course.text!
+        }
+        
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {

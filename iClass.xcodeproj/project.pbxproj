@@ -34,6 +34,7 @@
 		FF8B4B7D227E01B8003DB5E6 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8B4B7C227E01B8003DB5E6 /* AddClassViewController.swift */; };
 		FF8D1EED227FA2CC00A45BDC /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1EEC227FA2CC00A45BDC /* AttendanceViewController.swift */; };
 		FF8D1EEF227FA5BB00A45BDC /* AttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1EEE227FA5BB00A45BDC /* AttendanceTableViewCell.swift */; };
+		FF8D1EF1227FBCC500A45BDC /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1EF0227FBCC500A45BDC /* ResourcesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		FF8B4B7C227E01B8003DB5E6 /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		FF8D1EEC227FA2CC00A45BDC /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
 		FF8D1EEE227FA5BB00A45BDC /* AttendanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTableViewCell.swift; sourceTree = "<group>"; };
+		FF8D1EF0227FBCC500A45BDC /* ResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				0067E2A422728D5A00B0312C /* LiteralQuestionViewController.swift */,
 				0067E2A622728D5A00B0312C /* QuestionsPopUpControllerViewController.swift */,
 				0067E2A722728D5A00B0312C /* QuestionViewController.swift */,
+				FF8D1EF0227FBCC500A45BDC /* ResourcesViewController.swift */,
 				FF3691D32273ABB50087647B /* ProfessorViewController.swift */,
 				0013016E227BC574006C9E3D /* TeacherQuestionViewController.swift */,
 				00130170227BC84F006C9E3D /* TeacherLiteralQuestionViewController.swift */,
@@ -326,6 +329,7 @@
 				0013016F227BC574006C9E3D /* TeacherQuestionViewController.swift in Sources */,
 				FF034C3122739C1C00E0FFDD /* SignUpViewController.swift in Sources */,
 				0091C6CC227E491700D9F67B /* StudentTableViewCell.swift in Sources */,
+				FF8D1EF1227FBCC500A45BDC /* ResourcesViewController.swift in Sources */,
 				0067E2AF227291C800B0312C /* Location.swift in Sources */,
 				0091C6CA227E47A400D9F67B /* ProfessorStudentTableViewController.swift in Sources */,
 				FF8D1EED227FA2CC00A45BDC /* AttendanceViewController.swift in Sources */,
