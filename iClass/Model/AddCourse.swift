@@ -24,7 +24,8 @@ func addNewCourseProf(course: Course, email: String, password: String) {
     docRef.setData([
         "email": email,
         "students": [],
-        "password": password
+        "password": password,
+        "attendanceOn": false
     ], merge: true)
 }
 func changeProf(course: Course, email: String) {
