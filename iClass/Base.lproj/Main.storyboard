@@ -843,6 +843,9 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="27"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="I'm Here!"/>
+                                <connections>
+                                    <action selector="attendanceButton:" destination="DRV-xq-0w6" eventType="touchUpInside" id="UQ8-cw-ayq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZn-bf-qNT">
                                 <rect key="frame" x="290" y="48.5" width="124" height="44.5"/>

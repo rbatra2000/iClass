@@ -91,6 +91,7 @@ class InitialViewController: UIViewController {
             let logged = dest.viewControllers![0] as! LoggedInViewController
             
             logged.course = course.text!
+            logged.email = email.text!
         }
         
     }

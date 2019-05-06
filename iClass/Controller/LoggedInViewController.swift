@@ -13,12 +13,28 @@ import Firebase
 
 class LoggedInViewController: UIViewController {
     
+    var email: String = ""
     var course: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(gradientStyle:UIGradientStyle.radial, withFrame:view.frame, andColors:[UIColor.flatPowderBlue() as Any, UIColor.flatMint() as Any])
+        
+        email = email.replacingOccurrences(of: ".", with: "", options: NSString.CompareOptions.literal, range: nil)
+        
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func attendanceButton(_ sender: Any) {
+        
+        let docRef = db.collection("Courses").document(course)
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        
+        docRef.updateData(["attendance": [email: FieldValue.arrayUnion([formatter.string(from: date)])]])
+        
     }
     
     @IBAction func logOut(_ sender: Any) {
