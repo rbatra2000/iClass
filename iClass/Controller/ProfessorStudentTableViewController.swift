@@ -76,5 +76,15 @@ class ProfessorStudentTableViewController: UIViewController, UITableViewDataSour
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "attendancePopup") {
+            let dest = segue.destination as! AttendanceViewController
+            let indexPath = self.studentTable.indexPathForSelectedRow
+            let patientQuestionnaire = students[(indexPath?.row)!]
+            dest.studentEmail = patientQuestionnaire
+            dest.course = course
+        }
+    }
+    
 
 }

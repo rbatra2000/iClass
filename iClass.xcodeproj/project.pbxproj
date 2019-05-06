@@ -143,10 +143,10 @@
 				0067E2A622728D5A00B0312C /* QuestionsPopUpControllerViewController.swift */,
 				0067E2A722728D5A00B0312C /* QuestionViewController.swift */,
 				FF3691D32273ABB50087647B /* ProfessorViewController.swift */,
+				0091C6C9227E47A400D9F67B /* ProfessorStudentTableViewController.swift */,
 				0013016E227BC574006C9E3D /* TeacherQuestionViewController.swift */,
 				00130170227BC84F006C9E3D /* TeacherLiteralQuestionViewController.swift */,
 				FF8B4B7C227E01B8003DB5E6 /* AddClassViewController.swift */,
-				0091C6C9227E47A400D9F67B /* ProfessorStudentTableViewController.swift */,
 				FF8D1EEC227FA2CC00A45BDC /* AttendanceViewController.swift */,
 			);
 			path = Controller;

@@ -8,34 +8,41 @@
 
 import UIKit
 import Firebase
+import ChameleonFramework
 
 class AttendanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
+    var throwawayDict: [String: [String]] = [:]
     
-    var students: [String] = []
+    var dates: [String] = []
     var course: String = ""
-    @IBOutlet weak var table: UITableView!
+    var studentEmail: String = ""
+    
+    @IBOutlet weak var datesTable: UITableView!
+    
+    @IBOutlet weak var studentLabel: UILabel!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return students.count
+        return dates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell") as? StudentTableViewCell {
-            cell.studentName.text = students[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "dateID") as? AttendanceTableViewCell{
+            cell.label.text = dates[indexPath.row]
             return cell
         }
         return UITableViewCell()
     }
-    
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        studentLabel.text = studentEmail
+        
+        self.view.backgroundColor = UIColor(gradientStyle:UIGradientStyle.radial, withFrame:view.frame, andColors:[UIColor.flatPowderBlue() as Any, UIColor.flatMint() as Any])
 
-        table.delegate = self
-        table.dataSource = self
+        datesTable.delegate = self
+        datesTable.dataSource = self
         
         let db = Firestore.firestore()
         
@@ -43,11 +50,16 @@ class AttendanceViewController: UIViewController, UITableViewDataSource, UITable
         
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                self.students = (document["students"] as? [String] ?? nil)!
+                self.throwawayDict = document["attendance"] as! [String: [String]]
+                let dict = self.throwawayDict[self.studentEmail] ?? nil
+                if (dict == nil) {
+                } else {
+                    self.dates = dict!
+                }
             } else {
                 print("Document does not exist")
             }
-            self.table.reloadData()
+            self.datesTable.reloadData()
         }
         // Do any additional setup after loading the view.
     }
@@ -56,14 +68,4 @@ class AttendanceViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
