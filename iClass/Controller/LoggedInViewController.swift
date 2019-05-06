@@ -29,12 +29,25 @@ class LoggedInViewController: UIViewController {
         
         let docRef = db.collection("Courses").document(course)
         
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy"
-        
-        //docRef.updateData(["attendance": [email: FieldValue.arrayUnion([formatter.string(from: date)])]])
-        docRef.setData(["attendance": [email: FieldValue.arrayUnion([formatter.string(from: date)])]], merge: true)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document["attendanceOn"] as! Bool
+                if (dataDescription) {
+                    let date = Date()
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "MM/dd/yyyy"
+                    
+                    docRef.setData(["attendance": [self.email: FieldValue.arrayUnion([formatter.string(from: date)])]], merge: true)
+                } else {
+                    let alert = UIAlertController(title: "Class does not have attendance enabled", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    
+                    self.present(alert, animated: true)
+                }
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     @IBAction func logOut(_ sender: Any) {

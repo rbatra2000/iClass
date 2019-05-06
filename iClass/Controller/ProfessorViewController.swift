@@ -10,6 +10,8 @@ import UIKit
 import ChameleonFramework
 import Firebase
 import CircleMenu
+import MapKit
+import CoreLocation
 
 class ProfessorViewController: UIViewController, CircleMenuDelegate {
     
@@ -18,6 +20,11 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
     @IBOutlet weak var welcome: UILabel!
     
     var course: String = ""
+    
+    var lat:Double = 0
+    var long:Double = 0
+    
+    let locationManager = CLLocationManager()
     
     
     let items: [(icon: String, color: UIColor)] = [
@@ -65,6 +72,19 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
         button.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:[CLLocation]) {
+        // most recent location update at the end of the array
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        lat = locValue.latitude
+        long = locValue.longitude
+        
+        // do something
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Swift.Error) {
+        
+    }
+    
     func wait(num: Double) {
         usleep(useconds_t(num*1000000))
     }
@@ -78,10 +98,21 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
         self.performSegue(withIdentifier: "questions", sender: self)
     }
     
+    
+    
     func toggle() {
         tracking = !tracking
         if (tracking) {
             let alert = UIAlertController(title: "Attendance is turned on!", message: nil, preferredStyle: .alert)
+            
+            db.collection("Courses").document(course).updateData(["attendanceOn" : true])
+            { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
             
             alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
             
@@ -89,10 +120,23 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
         } else {
             let alert = UIAlertController(title: "Attendance is turned off!", message: nil, preferredStyle: .alert)
             
+            db.collection("Courses").document(course).updateData(["attendanceOn" : false])
+            { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+            
             alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
             
             self.present(alert, animated: true)
         }
+        
+        let docRef = db.collection("Courses").document(course)
+        
+        docRef.setData(["latitude" : lat, "longitude": long], merge: true)
     }
     
     func add() {
