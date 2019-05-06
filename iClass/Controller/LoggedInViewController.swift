@@ -10,8 +10,21 @@ import UIKit
 import ChameleonFramework
 import FirebaseAuth
 import Firebase
+import MapKit
+import CoreLocation
 
-class LoggedInViewController: UIViewController {
+class LoggedInViewController: UIViewController, CLLocationManagerDelegate {
+    
+    let locationManager = CLLocationManager()
+    
+    let db = Firestore.firestore()
+    var lat:Double = 0
+    var long:Double = 0
+    var courseX:Double = 0;
+    var courseY:Double = 0;
+    var result = true
+    
+    static let geoCoder = CLGeocoder()
     
     var email: String = ""
     var course: String = ""
@@ -22,7 +35,32 @@ class LoggedInViewController: UIViewController {
         
         email = email.replacingOccurrences(of: ".", with: "", options: NSString.CompareOptions.literal, range: nil)
         
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            locationManager.startUpdatingLocation()
+        }
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:[CLLocation]) {
+        // most recent location update at the end of the array
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        lat = locValue.latitude
+        long = locValue.longitude
+        
+        // do something
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Swift.Error) {
+        
+    }
+    
+    func changeState(state : Bool) {
+        result = state
     }
     
     @IBAction func attendanceButton(_ sender: Any) {
@@ -68,11 +106,11 @@ class LoggedInViewController: UIViewController {
             let email = Auth.auth().currentUser!.email!
             let c = Course(id: (alert.textFields?.first!.text)!.uppercased(), student: email)
             
-            db.collection("Users").document(email).updateData([
+            self.db.collection("Users").document(email).updateData([
                 "courses": FieldValue.arrayUnion([c.id]),
                 ])
             
-            let docRef = db.collection("Courses").document(c.id)
+            let docRef = self.db.collection("Courses").document(c.id)
             
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
@@ -89,6 +127,57 @@ class LoggedInViewController: UIViewController {
         }))
         
         self.present(alert, animated: true)
+    }
+    
+    @IBAction func markHere(_ sender: Any) {
+        let attendenceUp = true
+        let docRef = db.collection("Courses").document(course)
+        docRef.getDocument() { (document, error) in
+            if let document = document {
+                self.courseX = document.get("longitude") as! Double
+                print("courseX: \(self.courseX)")
+                self.courseY = document.get("latitude") as! Double
+                print("courseY: \(self.courseY)")
+                print("long: \(self.long)")
+                print("lat: \(self.lat)")
+                let x = abs(self.courseX - self.long)
+                let y = abs(self.courseY - self.lat)
+                let distance = (x * x + y * y).squareRoot()
+                print("distance: \(distance)")
+                if distance <= 0.005 {
+                    self.changeState(state: true)
+                    print("self.result: \(self.result)")
+                } else {
+                    
+                    self.changeState(state: false)
+                    print("self.result: \(self.result)")
+                }
+                
+                if attendenceUp == false {
+                    let alert = UIAlertController(title: "Attendance not ready!", message: "The professor has not toggled attendance up at the moment.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                        NSLog("The \"OK\" alert occured.")
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                } else if self.result == false {
+                    let alert = UIAlertController(title: "Not in Range!", message: "You are not in range! Get closer to class.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                        NSLog("The \"OK\" alert occured.")
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    let alert = UIAlertController(title: "Success!", message: "You have been marked here.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                        NSLog("The \"OK\" alert occured.")
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            } else {
+                print("Document does not exist in cache")
+            }
+        }
+        print("inRange end result: \(result)")
+        print("after inRange result: \(result)")
     }
     
     /*

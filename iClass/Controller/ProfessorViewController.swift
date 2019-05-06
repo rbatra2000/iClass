@@ -102,6 +102,12 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
     
     func toggle() {
         tracking = !tracking
+        let docRef = db.collection("Courses").document(course)
+        
+        docRef.setData([
+            "tracking": tracking
+        ])
+        
         if (tracking) {
             let alert = UIAlertController(title: "Attendance is turned on!", message: nil, preferredStyle: .alert)
             
