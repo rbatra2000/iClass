@@ -11,6 +11,7 @@ import ChameleonFramework
 import Firebase
 
 class AddClassViewController: UIViewController {
+    
     @IBOutlet weak var id: UITextField!
     
     override func viewDidLoad() {
