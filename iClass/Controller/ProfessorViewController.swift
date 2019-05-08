@@ -180,6 +180,9 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
         if segue.identifier == "check" {
             let dest = segue.destination as! ProfessorStudentTableViewController
             dest.course = course
+        } else if segue.identifier == "questions" {
+            let dest = segue.destination as! TeacherQuestionViewController
+            dest.course = course
         }
     }
 

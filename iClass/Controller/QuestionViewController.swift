@@ -13,6 +13,7 @@ import ChameleonFramework
 class QuestionViewController: UIViewController {
     
     @IBOutlet weak var inputQuestion: UITextView!
+    var course: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class QuestionViewController: UIViewController {
         
         let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpID") as! QuestionsPopUpControllerViewController
         self.addChild(popUp)
+        popUp.course = course;
         popUp.view.frame = self.view.frame
         self.view.addSubview(popUp.view)
         popUp.didMove(toParent: self)
@@ -48,7 +50,8 @@ class QuestionViewController: UIViewController {
         
         if questionToStore != "" && notTooLong {
             db.collection("Question").document(questionToStore ?? "").setData([
-                "question": questionToStore ?? "None"
+                "question": questionToStore ?? "None",
+                "course": course
             ]) { err in
                 if let err = err {
                     print("Error writing document: \(err)")
@@ -70,5 +73,6 @@ class QuestionViewController: UIViewController {
         try! Auth.auth().signOut()
         self.performSegue(withIdentifier: "logout", sender: self)
     }
+    
 }
 

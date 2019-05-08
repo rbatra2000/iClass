@@ -14,6 +14,7 @@ class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITa
     
     var questionText: String?
     var allQuestions: [String] = []
+    var course : String = ""
 
     @IBOutlet weak var questionsTable: UITableView!
     
@@ -21,15 +22,16 @@ class TeacherQuestionViewController: UIViewController, UITableViewDelegate, UITa
         allQuestions = []
         let db = Firestore.firestore()
         
-        db.collection("Question").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    self.allQuestions.append(document.documentID)
+        db.collection("Question").whereField("course", isEqualTo: course)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        self.allQuestions.append(document.get("question") as! String)
+                    }
+                    self.questionsTable.reloadData()
                 }
-            }
-            self.questionsTable.reloadData()
         }
     }
     

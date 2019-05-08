@@ -12,31 +12,31 @@ import Firebase
 class QuestionsPopUpControllerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var allQuestions: [String] = []
-
+    var course : String = ""
     @IBOutlet weak var questionsTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let db = Firestore.firestore()
-        
-        db.collection("Question").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    self.allQuestions.append(document.documentID)
-                }
-            }
-            self.questionsTable.reloadData()
-        }
-        
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        
+
+        
+        db.collection("Question").whereField("course", isEqualTo: course)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        self.allQuestions.append(document.get("question") as! String)
+                    }
+                    self.questionsTable.reloadData()
+                }
+        }
         questionsTable.delegate = self
         questionsTable.dataSource = self
-        
         self.showAnimate()
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -43,6 +43,9 @@ class LoggedInViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         
+        let questionTab = self.tabBarController!.viewControllers![1] as! QuestionViewController
+        questionTab.course = course
+        
         // Do any additional setup after loading the view.
     }
     
