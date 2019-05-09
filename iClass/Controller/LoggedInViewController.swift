@@ -66,7 +66,7 @@ class LoggedInViewController: UIViewController, CLLocationManagerDelegate {
         result = state
     }
     
-    @IBAction func attendanceButton(_ sender: Any) {
+    func attendanceButton() {
         
         let docRef = db.collection("Courses").document(course)
         
@@ -79,14 +79,7 @@ class LoggedInViewController: UIViewController, CLLocationManagerDelegate {
                     formatter.dateFormat = "MM/dd/yyyy"
                     
                     docRef.setData(["attendance": [self.email: FieldValue.arrayUnion([formatter.string(from: date)])]], merge: true)
-                } else {
-                    let alert = UIAlertController(title: "Class does not have attendance enabled", message: nil, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                    
-                    self.present(alert, animated: true)
                 }
-            } else {
-                print("Document does not exist")
             }
         }
     }
@@ -133,10 +126,11 @@ class LoggedInViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func markHere(_ sender: Any) {
-        let attendenceUp = true
+        
         let docRef = db.collection("Courses").document(course)
         docRef.getDocument() { (document, error) in
             if let document = document {
+                let attendenceUp:Bool = document.get("attendanceOn") as! Bool
                 self.courseX = document.get("longitude") as! Double
                 print("courseX: \(self.courseX)")
                 self.courseY = document.get("latitude") as! Double
@@ -174,13 +168,18 @@ class LoggedInViewController: UIViewController, CLLocationManagerDelegate {
                         NSLog("The \"OK\" alert occured.")
                     }))
                     self.present(alert, animated: true, completion: nil)
+                    
+                    // Success!!
+                    self.attendanceButton()
+    
+
+                    
                 }
-            } else {
-                print("Document does not exist in cache")
             }
         }
         print("inRange end result: \(result)")
         print("after inRange result: \(result)")
+        
     }
     
     /*

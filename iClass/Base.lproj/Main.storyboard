@@ -999,7 +999,7 @@
                                     <action selector="back:" destination="BwZ-Uu-PZy" eventType="touchUpInside" id="mE9-g3-c5o"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f57-g6-bbG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Attended Dates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f57-g6-bbG">
                                 <rect key="frame" x="61" y="65" width="293" height="90"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -1024,8 +1024,7 @@
                         <viewLayoutGuide key="safeArea" id="VaI-mt-EFl"/>
                     </view>
                     <connections>
-                        <outlet property="datesTable" destination="go2-R7-0AN" id="KKa-pL-8so"/>
-                        <outlet property="studentLabel" destination="f57-g6-bbG" id="mRp-A1-55i"/>
+                        <outlet property="table" destination="go2-R7-0AN" id="1oa-hA-W79"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUB-Hr-DaP" userLabel="First Responder" sceneMemberID="firstResponder"/>

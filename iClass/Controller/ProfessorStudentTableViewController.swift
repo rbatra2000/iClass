@@ -14,6 +14,7 @@ class ProfessorStudentTableViewController: UIViewController, UITableViewDataSour
     
     var students: [String] = []
     var course: String = ""
+    var student: String = ""
     
     @IBOutlet weak var totalLabel: UILabel!
     
@@ -71,9 +72,17 @@ class ProfessorStudentTableViewController: UIViewController, UITableViewDataSour
          popUp.view.frame = self.view.frame
          self.view.addSubview(popUp.view)
          popUp.didMove(toParent: self)*/
-        
+        student = self.students[indexPath.row]
         performSegue(withIdentifier: "attendancePopup", sender: indexPath)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "attendancePopup" {
+            let dest = segue.destination as! AttendanceViewController
+            dest.course = course
+            dest.student = student.replacingOccurrences(of: ".", with: "", options: NSString.CompareOptions.literal, range: nil)
+        }
     }
     
 

@@ -13,7 +13,7 @@ import CircleMenu
 import MapKit
 import CoreLocation
 
-class ProfessorViewController: UIViewController, CircleMenuDelegate {
+class ProfessorViewController: UIViewController, CircleMenuDelegate, CLLocationManagerDelegate {
     
     var tracking : Bool = false
     let colors = [UIColor.red, UIColor.gray, UIColor.green, UIColor.purple]
@@ -57,6 +57,14 @@ class ProfessorViewController: UIViewController, CircleMenuDelegate {
         button.delegate = self
         button.layer.cornerRadius = button.frame.size.width / 2.0
         view.addSubview(button)
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            locationManager.startUpdatingLocation()
+        }
     }
     
     // MARK: <CircleMenuDelegate>
