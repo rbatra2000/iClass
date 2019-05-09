@@ -25,6 +25,7 @@ func addNewCourseProf(course: Course, email: String, password: String) {
         "email": email,
         "students": [],
         "password": password,
+        "attendance": [:],
         "attendanceOn": false
     ], merge: true)
 }
